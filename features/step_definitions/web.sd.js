@@ -57,6 +57,7 @@ When('I login as: {string}, {string}', async function (login, password) {
 
 Then('I log out', async function () {
     await $('//a[@title="Log out"]').click();
+    await $('//button[contains(., "Login")]').waitForDisplayed();
 });
 
 async function invokeMethodOnPo(action, pretext, po, element, parameters) {
