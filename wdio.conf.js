@@ -259,6 +259,9 @@ exports.config = {
 
         if (!result.passed) {
             addDescription('TESTTESTTEST!!!<img src="https://s.keepmeme.com/files/en_posts/20200908/blurred-surprised-cat-meme-5b734a45210ef3b6657bcbe2831715fa.jpg">')
+            await browser.takeScreenshot()
+            addAttachment('HTML code', await $('body').getHTML(), 'text/html')
+            addAttachment('Cookies', await JSON.stringify(browser.getAllCookies()), 'text/plain')
         }
         // await browser.reloadSession();
     },
