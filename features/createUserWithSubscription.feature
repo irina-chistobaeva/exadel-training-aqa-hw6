@@ -17,7 +17,7 @@ Feature: User With Subscription Creation
         And I click Create button
 
         When I go to Create new Subscriptions menu item
-        Then I fill and check Subscription form for user: "<email>"
+        Then I fill and check Subscription form for user: "<email>" with annual payment: "<anual>"
         Then I log out
 
         Examples:
@@ -25,5 +25,3 @@ Feature: User With Subscription Creation
             | test1@test.com | qwerty1  | "tesr str" | "1-2"    | NY   | 12345 | 100   | "Test description" |
             | test2@test.com | qwerty2  | "tesr str" | "2-2"    | NY   | 12345 | 200   | "Test description" |
             | test3@test.com | qwerty3  | "tesr str" | "3-2"    | NY   | 12345 | 300   | "Test description" |
-
-

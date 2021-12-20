@@ -131,7 +131,7 @@ When('I click Create button', async function () {
     await $('//button[contains(., "Create")]').click();
 });
 
-Then(/^I fill and check Subscription form for user: \"([^\"]*)\"$/, async function (email) {
+Then(/^I fill and check Subscription form for user: \"([^\"]*)\" with annual payment: \"([^\"]*)\"$/, async function (email, anual) {
     addAttachment('Subscription property:', `Plan: Premium, Years: 2, User: ${email}, Total: 10, Description: test description`);
-    await Subscription.fillAndCheckForm(email);
+    await Subscription.fillAndCheckForm(email, anual);
 });

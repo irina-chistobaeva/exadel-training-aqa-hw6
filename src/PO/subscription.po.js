@@ -33,11 +33,11 @@ class Subscription {
     }
 
     // actions
-    async fillAndCheckForm(user) {
+    async fillAndCheckForm(user, anual) {
         await this.plan.selectByVisibleText('Premium');
         await this.years.setValue('2');
-        await this.user.selectByVisibleText(user);
-        await this.total.setValue('10');
+        await this.user.selectByVisibleText(user); 
+        await browser.pause(1000);       
         await this.description.setValue('test description');
         await this.createButton.click();
 
@@ -46,7 +46,7 @@ class Subscription {
         expect(await userRow.$('(.//div[@class="tabulator-cell"])[1]').getText()).toEqual('PREM');
         expect(await userRow.$('(.//div[@class="tabulator-cell"])[2]').getText()).toEqual(user);
         expect(await userRow.$('(.//div[@class="tabulator-cell"])[3]').getText()).toEqual('2');
-        expect(await userRow.$('(.//div[@class="tabulator-cell"])[4]').getText()).toEqual('10');
+        expect(await userRow.$('(.//div[@class="tabulator-cell"])[4]').getText()).toEqual(`${2 * anual}`);
         expect(await userRow.$('(.//div[@class="tabulator-cell"])[5]').getText()).toEqual(' ');
         expect(await userRow.$('(.//div[@class="tabulator-cell"])[6]').getText()).toEqual('test description');
     }
